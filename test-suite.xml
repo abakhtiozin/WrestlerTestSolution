@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="suites" verbose="1">
+    <suite-files>
+        <suite-file path="src/main/resources/api-suite.xml"/>
+        <suite-file path="src/main/resources/browser-suite.xml"/>
+    </suite-files>
+</suite>
