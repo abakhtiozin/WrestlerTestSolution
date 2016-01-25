@@ -40,8 +40,6 @@ public class APIScenariosTest {
     @Test(enabled = false) //seems like UPDATE method in API doesn't work
     @Features("Update API")
     public void updateWrestler() throws UnirestException {
-        APIWrestlerClient APIWrestlerClient = new APIWrestlerClient();
-        APIWrestlerClient.authorize("auto", "test");
         String id = APIWrestlerClient.createWrestler(generateWrestler());
         lastGeneratedWrestler.setMiddleName("Updated");
         String status = APIWrestlerClient.updateWrestler(lastGeneratedWrestler, id);
