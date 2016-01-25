@@ -1,6 +1,5 @@
 package test.java.api;
 
-import com.mashape.unirest.http.exceptions.UnirestException;
 import main.java.api.APIWrestlerClient;
 import main.java.model.Wrestler;
 import org.testng.Assert;
@@ -23,14 +22,14 @@ public class APIScenariosTest {
 
     @Test
     @Features("Create API")
-    public void createWrestler() throws InterruptedException {
+    public void createWrestler() {
         String id = APIWrestlerClient.createWrestler(generateWrestler());
         Assert.assertTrue(id != null && Integer.valueOf(id) > 0);
     }
 
     @Test
     @Features("Delete API")
-    public void deleteWrestler() throws UnirestException, InterruptedException {
+    public void deleteWrestler() {
         String id = APIWrestlerClient.createWrestler(generateWrestler());
         String status = APIWrestlerClient.deleteWrestler(id);
         Assert.assertTrue(status.equals("OK"));
@@ -39,7 +38,7 @@ public class APIScenariosTest {
 
     @Test(enabled = false) //seems like UPDATE method in API doesn't work
     @Features("Update API")
-    public void updateWrestler() throws UnirestException {
+    public void updateWrestler() {
         String id = APIWrestlerClient.createWrestler(generateWrestler());
         lastGeneratedWrestler.setMiddleName("Updated");
         String status = APIWrestlerClient.updateWrestler(lastGeneratedWrestler, id);
@@ -49,7 +48,7 @@ public class APIScenariosTest {
 
     @Test
     @Features("Read API")
-    public void readWrestler() throws InterruptedException {
+    public void readWrestler() {
         String id = APIWrestlerClient.createWrestler(generateWrestler());
         Wrestler wrestler = APIWrestlerClient.readWrestler(id);
         Assert.assertTrue(wrestler.getLastName().equals(lastGeneratedWrestler.getLastName()));
